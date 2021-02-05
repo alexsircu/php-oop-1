@@ -5,6 +5,18 @@
     public $author;
     public $price;
     public $genre;
+    public $discount;
+
+    // METODI
+    public function setDiscount($price) {
+      if($price >= 10) {
+        $this->discount = 2;
+      }
+    }
+
+    public function getDiscount() {
+      return $this->price - $this->discount;
+    }
 
   }
 
@@ -15,12 +27,18 @@
   $firstBook->genre = "Psicologico";
   var_dump($firstBook);
 
+  $firstBook->setDiscount(10);
+  echo "Il prezzo del libro scontato è di: ".$firstBook->getDiscount()." €";
+
   $secondBook = new Book();
   $secondBook->title = "Pensieri lenti e veloci";
   $secondBook->author = "Daniel Kahneman";
   $secondBook->price = 17.00;
   $secondBook->genre = "Psicologico";
   var_dump($secondBook);
+
+  $secondBook->setDiscount(17);
+  echo "Il prezzo del libro scontato è di: ".$secondBook->getDiscount()." €";
 
   $thirdBook = new Book();
   $thirdBook->title = "Il fu Mattia Pascal";
@@ -29,4 +47,7 @@
   $thirdBook->genre = "Romanzo";
   var_dump($thirdBook);
 
-  echo $thirdBook->title;
+  $thirdBook->setDiscount(6);
+  echo "Il prezzo del libro scontato è di: ".$thirdBook->getDiscount()." €";;
+
+  // echo $thirdBook->title;
