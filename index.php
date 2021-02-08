@@ -7,6 +7,14 @@
     public $genre;
     public $discount;
 
+    //COSTRUTTORE
+    public function __construct($title, $author, $price, $genre) {
+      $this->title = $title;
+      $this->author = $author;
+      $this->price = $price;
+      $this->genre = $genre;
+    }
+
     // METODI
     public function setDiscount($price) {
       if($price >= 10) {
@@ -19,32 +27,23 @@
     }
 
   }
-
-  $firstBook = new Book();
-  $firstBook->title = "Le vostre zone erronee";
-  $firstBook->author = "Wayne W. Dyer";
-  $firstBook->price = 10.00;
-  $firstBook->genre = "Psicologico";
+  
+  // primo libro
+  $firstBook = new Book("Le vostre zone erronee", "Wayne W. Dyer", 10.00, "Psicologico");
   var_dump($firstBook);
 
   $firstBook->setDiscount(10);
   echo "Il prezzo del libro scontato è di: ".$firstBook->getDiscount()." €";
 
-  $secondBook = new Book();
-  $secondBook->title = "Pensieri lenti e veloci";
-  $secondBook->author = "Daniel Kahneman";
-  $secondBook->price = 17.00;
-  $secondBook->genre = "Psicologico";
+  //secondo libro
+  $secondBook = new Book("Pensieri lenti e veloci", "Daniel Kahneman", 17.00, "Psicologico");
   var_dump($secondBook);
 
   $secondBook->setDiscount(17);
   echo "Il prezzo del libro scontato è di: ".$secondBook->getDiscount()." €";
 
-  $thirdBook = new Book();
-  $thirdBook->title = "Il fu Mattia Pascal";
-  $thirdBook->author = "Luigi Pirandello";
-  $thirdBook->price = 6.00;
-  $thirdBook->genre = "Romanzo";
+  //terzo libro
+  $thirdBook = new Book("Il fu Mattia Pascal", "Luigi Pirandello", 6.00, "Romanzo");
   var_dump($thirdBook);
 
   $thirdBook->setDiscount(6);
